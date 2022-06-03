@@ -11,20 +11,28 @@
 <body>
     <div class="my-5">
         <div class="container">
+            <!-- Start section here -->
             <div class="text-center" id="start-section">
                 <h1 class="my-4">Dice game</h1>
                 <button type="button" name="" id="" onclick="startGame()" class="btn btn-lg btn-primary">Start the game</button>
             </div>
 
+            <!-- Main game here -->
             <div class="row mx-5" id="main_game" style="display: none;">
 
                 <div class="col-sm-8 py-3">
+                    <small><span id="rounds"></span> rounds remaining</small>
                     <h1>Dice game</h1>
                 </div>
 
 
-                <div class="col-sm-4 py-3 d-flex justify-content-end">
-                    <button type="button" name="" id="" class="btn btn-primary">Role the dice</button>
+                <div class="col-sm-4 py-3 d-flex justify-content-end align-items-center">
+                    <button 
+                    type="button"
+                    name="" 
+                    id="" 
+                    class="btn btn-primary"
+                    onclick="roleDice()">Role the dice</button>
                 </div>
 
                 <div class="col-sm-6">
@@ -32,12 +40,12 @@
                       <div class="card-body">
                         <div class="row">
                             <div class="col-sm-9">
-                                <h4 class="card-title">Player 1</h4>
+                                <h4 class="card-title" id="player1_name">Player 1</h4>
                             </div>
-                            <div class="col-sm-3">Points: <span>0</span></div>
+                            <div class="col-sm-3">Points: <span id="player1_points">0</span></div>
                         </div>
                         <div class="text-center my-3">
-                            <img src="img/blank_p1.png" style="width: 50px;" alt="">
+                            <img src="img/blank_p1.png" id="p1_img" style="width: 50px;" alt="">
                         </div>
                       </div>
                     </div>
@@ -48,37 +56,40 @@
                       <div class="card-body">
                         <div class="row">
                             <div class="col-sm-9">
-                                <h4 class="card-title">Player 2</h4>
+                                <h4 class="card-title" id="player2_name">Player 2</h4>
                             </div>
-                            <div class="col-sm-3">Points: <span>0</span></div>
+                            <div class="col-sm-3">Points: <span id="player2_points">0</span></div>
                         </div>
                         <div class="text-center my-3">
-                            <img src="img/blank_p2.png" style="width: 50px;" alt="">
+                            <img src="img/blank_p2.png"  id="p2_img"  style="width: 50px;" alt="">
                         </div>
                       </div>
                     </div>
+                </div>
+                <!-- <div>
+                    <h2 id="abc">0</h2>
+                </div> -->
+            </div>
+
+            <!-- win section here -->
+            <div class="my-5 row" id="win_container" style="display: none;">
+                <div class="col-sm-12 d-flex align-items-center justify-content-center">
+                    <div class="card text-center" style="width:fit-content;">
+                        <img class="card-img-top" style="width: 200px;" src="img/winner.jpg" alt="">
+                        <div class="card-body">
+                          <h4 class="card-title" id="who_win"></h4>
+                        </div>
+                        <button type="button" name="" onclick="reStartGame()" class="btn btn-lg btn-primary">Play again</button>
+                      </div>
                 </div>
                 
             </div>
+
+        
         </div>
     </div>
 </body>
 
-<script>
-    var rounds = null;
-
-    function startGame() {
-        let user_input = prompt("Enter no. of the rounds in game: ");
-        if (user_input) {
-            rounds = parseInt(user_input);
-            document.getElementById("main_game").style.display = "flex";
-            document.getElementById("start-section").style.display = "none";
-        }
-    }
-
-
-    
-</script>
-
+<script src="script.js"></script>
 
 </html>
